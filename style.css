@@ -1,0 +1,153 @@
+:root {
+    --clr-neon: hsl(294, 100%, 43%);
+    --clr-bg: hsl(323 21% 16%);
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body{
+    background-image: url('purple-sky.jpg');
+    margin: 0;
+    padding-top: 0;
+}
+h2{
+    padding-left : 100px;
+    color:white;
+    font: bold 40px Quicksand, arial, serif;
+}
+header{
+    padding: 0;
+    backdrop-filter: blur(5px);
+}
+.titre{
+    display:inline-block;
+}
+.header img{
+    width: 100%;
+    height: auto;
+}
+.menu{
+    float:right;
+    padding: 20px;
+    word-spacing: 10px;
+}
+.neon-button {
+    font-size: 1.5rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.050em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.0125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+    position: relative;
+}
+
+.neon-button::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+}
+
+.neon-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+    transition: opacity 100ms linear;
+}
+
+.neon-button:hover,
+.neon-button:focus {
+    color: var(--clr-bg);
+    text-shadow: none;
+}
+
+.neon-button:hover::before,
+.neon-button:focus::before {
+    opacity: 1;
+}
+.neon-button:hover::after,
+.neon-button:focus::after {
+    opacity: 1;
+}
+
+section{
+    max-width: 85%;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin: 20px auto;
+}
+
+/*Image jeu et description*/
+.infojeu {
+    font: bold 20px Batang, arial, serif;
+    font-weight: normal;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.infojeu img{
+    margin: 5em 10em 0em 10em;
+    height:70%;
+    width:70%;
+}
+
+.textindex {
+    color: white;
+    font: bold 45px Batang, arial, serif;
+    text-align: center;
+    padding-left: 15%;
+}
+.imgindex{
+    margin: 5em 10em 0em 10em;
+    height:60%;
+    width:80%;
+}
+/* pas trop utile sert juste pour placer le texte*/
+.container {
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.content {
+    margin-bottom: 4em;
+}
+.content p {
+    display: inline;
+    background-repeat: no-repeat;
+    transition: all 500ms ease-in-out;
+}
+
+.v3 p {
+    color: transparent;
+    background-position: right;
+    background-size: 100% 100%;
+    background-image: linear-gradient(#a600a6, #35003a);
+}
+.v3:hover p {
+    color: #ffffff;
+    background-size: 0% 100%;
+}
